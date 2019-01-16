@@ -1,4 +1,4 @@
-public class Client {
+public class SPRoid {
 
 	public static void main(String[] args) {
 		
