@@ -2,27 +2,29 @@ package application;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.scene.Group;
+import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
 
 public class Main extends Application {
 
 	private static Stage stage;
 	private Parent root;
+	private boolean transparent = false;
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		Main.stage = stage;
-		setPage("./Start.fxml");
+		root = FXMLLoader.load(new File("./Start.fxml").toURI().toURL());
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
 		Main.stage.show();
 	}
 
@@ -30,10 +32,25 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	public void transparent() {
+		transparent = true;
+	}
+
 	public void setPage(String path) {
 		try {
+			// window削除
+			stage.getScene().getWindow().hide();
+			// 新しく生成
+			stage = new Stage();
 			root = FXMLLoader.load(new File(path).toURI().toURL());
-			stage.setScene(new Scene(root, 600, 600));
+			Scene scene = new Scene(root);
+			if (transparent) {
+				Platform.setImplicitExit(false);
+				stage.initStyle(StageStyle.TRANSPARENT);
+				scene.setFill(null);
+			}
+			stage.setScene(scene);
+			Main.stage.show();
 		} catch (IOException ex) {
 			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 		}
