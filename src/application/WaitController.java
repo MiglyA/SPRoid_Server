@@ -16,5 +16,4 @@ public class WaitController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		progress.setMaxWidth(100);
 	}
-
 }
