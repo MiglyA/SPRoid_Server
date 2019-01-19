@@ -14,7 +14,7 @@ public class StartController implements Initializable {
 
 	@FXML
 	Text title;
-
+	
 	@FXML
 	Button nox_button;
 

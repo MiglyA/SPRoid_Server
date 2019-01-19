@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?language javascript?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import java.lang.*?>
@@ -18,7 +19,7 @@
                   <Font name="FreeMono" size="47.0" />
                </font>
                <StackPane.margin>
-                  <Insets top="90.0" />
+                  <Insets top="70.0" />
                </StackPane.margin>
             </Text>
             <Button fx:id="android_button" blendMode="DIFFERENCE" layoutX="103.0" layoutY="217.0" mnemonicParsing="false" onAction="#onClick_android" prefHeight="70.0" prefWidth="100.0" text="Android" StackPane.alignment="BOTTOM_RIGHT">
@@ -37,6 +38,11 @@
                   <Font size="19.0" />
                </font>
             </Button>
+            <ImageView fitHeight="82.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../SPRoid_image.png" />
+               </image>
+            </ImageView>
          </children>
       </StackPane>
    </center>
