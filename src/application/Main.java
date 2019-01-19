@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,7 +16,6 @@ public class Main extends Application {
 
 	private static Stage stage;
 	private Parent root;
-	private boolean transparent = false;
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -32,11 +30,7 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	public void transparent() {
-		transparent = true;
-	}
-
-	public void setPage(String path) {
+	public void setPage(String path, StageStyle style) {
 		try {
 			// window削除
 			stage.getScene().getWindow().hide();
@@ -44,9 +38,8 @@ public class Main extends Application {
 			stage = new Stage();
 			root = FXMLLoader.load(new File(path).toURI().toURL());
 			Scene scene = new Scene(root);
-			if (transparent) {
-				Platform.setImplicitExit(false);
-				stage.initStyle(StageStyle.TRANSPARENT);
+			stage.initStyle(style);
+			if (style == StageStyle.TRANSPARENT) {
 				scene.setFill(null);
 			}
 			stage.setScene(scene);

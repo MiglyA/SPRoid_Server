@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.StageStyle;
 
 public class StartController implements Initializable {
 
@@ -26,14 +27,11 @@ public class StartController implements Initializable {
 
 	@FXML
 	protected void onClick_nox(ActionEvent ev) {
-		Main main = new Main();
-		main.transparent();
-	
-		main.setPage("./Wait.fxml");
+		new Main().setPage("./Wait.fxml", StageStyle.UNDECORATED);
 	}
 
 	@FXML
 	protected void onClick_android(ActionEvent ev) {
-		new Main().setPage("Android.fxml");
+		new Main().setPage("./Wait.fxml", StageStyle.UNDECORATED);
 	}
 }
