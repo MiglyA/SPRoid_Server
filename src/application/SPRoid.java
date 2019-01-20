@@ -1,30 +1,33 @@
 package application;
 
+import controller.WaitController;
 import javafx.application.Platform;
-import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 public class SPRoid {
 
 	public String subscribe_string = null;
 	public boolean launch = false;
-	public Label label;
+	public Text subtitle;
+	public boolean connected = false;
 
-	public SPRoid(Label label_Output) {
-		this.label = label_Output;
+	public SPRoid(Text label_Output) {
+		this.subtitle = label_Output;
+	}
+
+	public SPRoid() {
 	}
 
 	public boolean isLaunch() {
 		return launch;
 	}
 
-	public void launch() {
+	public void launch(WaitController waitController) {
 
 		// スレッド
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-
-				launch = true;
 
 				System.out.println(System.getProperty("file.encoding"));
 
@@ -32,12 +35,14 @@ public class SPRoid {
 
 				mobileSocket.client(12345);
 
+				waitController.nextPage();
+
 				while (true) {
 					subscribe_string = mobileSocket.subscribe();
 					if (subscribe_string != null) {
 						System.out.println(subscribe_string);
 						Platform.runLater(() -> {
-							label.setText(subscribe_string);
+							subtitle.setText(subscribe_string);
 						});
 					}
 

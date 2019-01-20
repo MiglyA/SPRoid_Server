@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <bottom>
+      <Text fx:id="subtitle" fill="WHITE" stroke="#f80000" strokeType="OUTSIDE" strokeWidth="0.6" text="字幕" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Lucida Sans Typewriter Regular" size="27.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="30.0" />
+         </BorderPane.margin>
+      </Text>
+   </bottom>
+</BorderPane>

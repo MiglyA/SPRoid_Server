@@ -1,19 +1,20 @@
-package application;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ProgressIndicator;
+import javafx.scene.text.Text;
 
-public class WaitController implements Initializable {
+public class MainController implements Initializable {
 
 	@FXML
-	ProgressIndicator progress;
+	Text subtitle;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		progress.setMaxWidth(100);
+		Main.spRoid.subtitle = subtitle;
 	}
 }

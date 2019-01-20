@@ -16,6 +16,11 @@ public class Main extends Application {
 
 	private static Stage stage;
 	private Parent root;
+	public static SPRoid spRoid;
+
+	public void setSPRoid(SPRoid spRoid) {
+		Main.spRoid = spRoid;
+	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -30,12 +35,14 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	public void setPage(String path, StageStyle style) {
+	public void setPage(String path, StageStyle style, boolean fullscreen) {
 		try {
 			// window削除
 			stage.getScene().getWindow().hide();
 			// 新しく生成
 			stage = new Stage();
+			stage.setMaximized(fullscreen);
+			stage.setAlwaysOnTop(true);
 			root = FXMLLoader.load(new File(path).toURI().toURL());
 			Scene scene = new Scene(root);
 			stage.initStyle(style);
